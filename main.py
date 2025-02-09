@@ -251,9 +251,4 @@ async def main() -> None:
 
 # Run bot
 if __name__ == "__main__":
-    # Run the asyncio loop
-    try:
-        import asyncio
-        asyncio.run(main())  # This will automatically manage the event loop
-    except Exception as e:
-        print(f"Error: {e}")
+    main()
