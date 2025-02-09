@@ -122,6 +122,23 @@ def fetch_notes(batch_id, subject_id, topic_id):
 
 
 # Start command
+async def check_for_updates(context: ContextTypes.DEFAULT_TYPE):
+    global TOKEN, USER_ID_TO_IDX
+    
+    new_token = get_token_from_url()
+    new_user_idx = get_user_id_to_idx()
+    
+    if new_token != TOKEN:
+        TOKEN = new_token
+        print("Token updated.")
+    
+    if new_user_idx != USER_ID_TO_IDX:
+        USER_ID_TO_IDX = new_user_idx
+        print("User index updated.")
+
+    # Run every minute
+    context.job_queue.run_once(check_for_updates, 60)
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(update.message.from_user.id)
     if user_id not in USER_ID_TO_IDX:
