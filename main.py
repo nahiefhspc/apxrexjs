@@ -251,4 +251,5 @@ async def main() -> None:
 
 # Run bot
 if __name__ == "__main__":
-    asyncio.run(main())
+    # Run the main async function without asyncio.run()
+    main()
