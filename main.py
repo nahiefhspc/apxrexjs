@@ -247,7 +247,7 @@ def main() -> None:
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(button))
 
-    await application.run_polling()
+    application.run_polling()
 
 # Run bot
 if __name__ == "__main__":
