@@ -2,7 +2,7 @@ from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 import requests
 import html
-
+import asyncio
 # Replace with your bot token
 BOT_TOKEN = "7228769120:AAEYp72dtrdod-kVJy5uWQhK454TCeq958w"
 
