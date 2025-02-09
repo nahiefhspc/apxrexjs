@@ -251,13 +251,9 @@ async def main() -> None:
 
 # Run bot
 if __name__ == "__main__":
-    # Check if there's a running event loop and use it
+    # Run the asyncio loop
     try:
-        loop = asyncio.get_running_loop()
-    except RuntimeError:  # No event loop running
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop.run_until_complete(main())
-    else:
-        # If an event loop is already running, schedule `main` to run asynchronously
-        loop.create_task(main())
+        import asyncio
+        asyncio.run(main())  # This will automatically manage the event loop
+    except Exception as e:
+        print(f"Error: {e}")
