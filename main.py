@@ -251,5 +251,10 @@ async def main() -> None:
 
 # Run bot
 if __name__ == "__main__":
+    # Simply call main() if running in an async environment
     import asyncio
-    asyncio.run(main())
+    if not asyncio.get_event_loop().is_running():
+        asyncio.run(main())  # If no event loop is running, create a new one
+    else:
+        # If event loop is already running, call main directly
+        asyncio.ensure_future(main())
