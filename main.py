@@ -4,7 +4,7 @@ import requests
 import html
 
 # Replace with your bot token
-BOT_TOKEN = "6361809314:AAHsd3UMiO7nS_TJMSJhzSS4F3GSBtHkUPo"
+BOT_TOKEN = "7228769120:AAEYp72dtrdod-kVJy5uWQhK454TCeq958w"
 
 # Function to get token from the URL
 def get_token_from_url():
@@ -17,6 +17,16 @@ def get_token_from_url():
 
 # Fetch token for API requests
 TOKEN = get_token_from_url()
+
+def get_user_id_to_idx():
+    url = "https://professional-janeta-sfshhsc-1d414042.koyeb.app/"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return data
+    return {}
+
+USER_ID_TO_IDX = get_user_id_to_idx()  # Automatic fetching of user IDs and phone numbers
 
 # Year-Class-Batch Mapping
 YEAR_CLASSES = {
@@ -71,10 +81,6 @@ YEAR_CLASSES = {
 }
 
 # Mapping of Telegram user IDs to phone numbers
-USER_ID_TO_IDX = {
-    "5487643307": "+913459536420",
-    "7137002799": "+915622654326",
-}
 
 # Fetch subjects
 def fetch_subjects(batch_id):
