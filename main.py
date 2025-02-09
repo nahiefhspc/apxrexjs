@@ -237,7 +237,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         else:
             await query.edit_message_text(text="No notes available.")
 # Main function
-async def main() -> None:
+def main() -> None:
     application = Application.builder().token(BOT_TOKEN).build()
 
     # Add job queue
