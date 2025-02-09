@@ -137,7 +137,7 @@ async def check_for_updates(context: ContextTypes.DEFAULT_TYPE):
         print("User index updated.")
 
     # Run every minute
-    context.job_queue.run_once(check_for_updates, 60)
+    context.job_queue.run_once(check_for_updates, 20)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(update.message.from_user.id)
@@ -237,11 +237,18 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         else:
             await query.edit_message_text(text="No notes available.")
 # Main function
-def main():
-    app = Application.builder().token(BOT_TOKEN).build()
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(CallbackQueryHandler(button))
-    app.run_polling()
+async def main() -> None:
+    application = Application.builder().token(BOT_TOKEN).build()
 
+    # Add job queue
+    job_queue = application.job_queue
+    job_queue.run_once(check_for_updates, 20)
+
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CallbackQueryHandler(button))
+
+    await application.run_polling()
+
+# Run bot
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
