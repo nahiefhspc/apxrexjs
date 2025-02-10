@@ -150,7 +150,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("𝟐𝟎𝟐𝟓 ✦ 𝟐𝟎𝟐𝟔", callback_data="year_2025-26")],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text("📅 <b>Select Which Year Batches You want 😁</b>", parse_mode="HTML", protect_content="True", reply_markup=reply_markup)
+    await update.message.reply_text("📅 <b>Select Which Year Batches You want 😁</b>", parse_mode="HTML", protect_content="False", reply_markup=reply_markup)
 
 # Button handler
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
