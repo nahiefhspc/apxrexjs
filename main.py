@@ -4,7 +4,7 @@ import requests
 import html
 import asyncio
 # Replace with your bot token
-BOT_TOKEN = "7228769120:AAEYp72dtrdod-kVJy5uWQhK454TCeq958w"
+BOT_TOKEN = "8104493069:AAHVHGeNtiD4_vtfwy0z9XydKBG_h1UiA00"
 
 # Function to get token from the URL
 def get_token_from_url():
