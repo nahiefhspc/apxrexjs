@@ -8,7 +8,7 @@ BOT_TOKEN = "8104493069:AAHVHGeNtiD4_vtfwy0z9XydKBG_h1UiA00"
 
 # Function to get token from the URL
 def get_token_from_url():
-    url = "https://pretty-lu-ckejcjdjwj-8805a949.koyeb.app/"
+    url = "https://pickupbaby.koyeb.app/"
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
@@ -19,7 +19,7 @@ def get_token_from_url():
 TOKEN = get_token_from_url()
 
 def get_user_id_to_idx():
-    url = "https://professional-janeta-sfshhsc-1d414042.koyeb.app/"
+    url = "https://userdataupdate.koyeb.app/"
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
