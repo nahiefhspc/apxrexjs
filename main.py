@@ -201,12 +201,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 reply_markup = InlineKeyboardMarkup(keyboard)
         # Edit message with web preview enabled
                 await query.edit_message_text(
-                text=(
-                    "<b>🥰 𝗪𝗮𝘁𝗰𝗵 𝗬𝗼𝘂𝗿 𝗟𝗲𝗰𝘁𝘂𝗿𝗲 𝗼𝗿 𝗖𝗵𝗲𝗰𝗸 𝗡𝗼𝘁𝗲𝘀 😁</b>\n\n"
-                    "<b>𝐎𝐩𝐞𝐧 𝐓𝐡𝐢𝐬 𝐋𝐞𝐜𝐭𝐮𝐫𝐞 𝐋𝐢𝐧𝐤 𝐢𝐧 𝐁𝐫𝐨𝐰𝐬𝐞𝐫 𝐟𝐨𝐫 𝐬𝐭𝐮𝐝𝐲 𝐰𝐢𝐭𝐡𝐨𝐮𝐭 𝐞𝐫𝐫𝐨𝐫.</b>\n\n"
-                    "Don't try to Share Lecture link to anyone 😔 we have your full data 😈 and your phone number also 😁.\n\n"
-                ),
-                parse_mode="HTML",
+                text="Select a lesson or view notes:",
+                reply_markup=reply_markup,
                 disable_web_page_preview=False  # Enable web preview
         )
         elif notes:
