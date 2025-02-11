@@ -142,7 +142,7 @@ async def check_for_updates(context: ContextTypes.DEFAULT_TYPE):
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(update.message.from_user.id)
     if user_id not in USER_ID_TO_IDX:
-        await update.message.reply_text("<b>❌ 𝐀𝐚𝐫𝐞 𝐰𝐚𝐚𝐡 𝐁𝐄𝐓𝐈𝐂𝐇𝐎𝐃 𝐟𝐫𝐞𝐞 𝐤𝐚 𝐥𝐞𝐧𝐞 𝐚𝐚𝐲𝐚 𝐡𝐚𝐢 𝐤𝐲𝐚 🤣 𝐛𝐡𝐚𝐤\n\n✥ Yaha Msg kar Aur kharidle bhai kyu mara raha hai 😔\n𝐂𝐎𝐍𝐓𝐀𝐂𝐓 - @HACKHEISTBUYBOT</b>", parse_mode="HTML", protect_content="True")
+        await update.message.reply_text("<b>❌ 𝐀𝐚𝐫𝐞 𝐰𝐚𝐚𝐡 𝐁𝐄𝐓𝐈𝐂𝐇𝐎𝐃 𝐟𝐫𝐞𝐞 𝐤𝐚 𝐥𝐞𝐧𝐞 𝐚𝐚𝐲𝐚 𝐡𝐚𝐢 𝐤𝐲𝐚 🤣 𝐛𝐡𝐚𝐤\n\n✥ Yaha Msg kar Aur kharidle bhai kyu mara raha hai 😔\n𝐂𝐎𝐍𝐓𝐀𝐂𝐓 - @NITSCHOOL_BOT</b>", parse_mode="HTML", protect_content="True")
         return
 
     keyboard = [
@@ -150,7 +150,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("𝟐𝟎𝟐𝟓 ✦ 𝟐𝟎𝟐𝟔", callback_data="year_2025-26")],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text("📅 <b>Select Which Year Batches You want 😁</b>", parse_mode="HTML", protect_content="False", reply_markup=reply_markup)
+    await update.message.reply_text("📅 <b>Select Which Year Batches You want 😁</b>", parse_mode="HTML", protect_content="True", reply_markup=reply_markup)
 
 # Button handler
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -160,7 +160,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(query.from_user.id)
 
     if user_id not in USER_ID_TO_IDX:
-        await query.edit_message_text("<b>❌ 𝐀𝐚𝐫𝐞 𝐰𝐚𝐚𝐡 𝐁𝐄𝐓𝐈𝐂𝐇𝐎𝐃 𝐟𝐫𝐞𝐞 𝐤𝐚 𝐥𝐞𝐧𝐞 𝐚𝐚𝐲𝐚 𝐡𝐚𝐢 𝐤𝐲𝐚 🤣 𝐛𝐡𝐚𝐤\n\n✥ Yaha Msg kar Aur kharidle bhai kyu mara raha hai 😔\n𝐂𝐎𝐍𝐓𝐀𝐂𝐓 - @HACKHEISTBUYBOT</b>", parse_mode="HTML")
+        await query.edit_message_text("<b>❌ 𝐀𝐚𝐫𝐞 𝐰𝐚𝐚𝐡 𝐁𝐄𝐓𝐈𝐂𝐇𝐎𝐃 𝐟𝐫𝐞𝐞 𝐤𝐚 𝐥𝐞𝐧𝐞 𝐚𝐚𝐲𝐚 𝐡𝐚𝐢 𝐤𝐲𝐚 🤣 𝐛𝐡𝐚𝐤\n\n✥ Yaha Msg kar Aur kharidle bhai kyu mara raha hai 😔\n𝐂𝐎𝐍𝐓𝐀𝐂𝐓 - @NITSCHOOL_BOT</b>", parse_mode="HTML")
         return
 
     if data.startswith("year_"):
@@ -201,10 +201,14 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 reply_markup = InlineKeyboardMarkup(keyboard)
         # Edit message with web preview enabled
                 await query.edit_message_text(
-                text="Select a lesson or view notes:",
-                reply_markup=reply_markup,
+                text=(
+                    "<b>🥰 𝗪𝗮𝘁𝗰𝗵 𝗬𝗼𝘂𝗿 𝗟𝗲𝗰𝘁𝘂𝗿𝗲 𝗼𝗿 𝗖𝗵𝗲𝗰𝗸 𝗡𝗼𝘁𝗲𝘀 😁</b>\n\n"
+                    "<b>𝐎𝐩𝐞𝐧 𝐓𝐡𝐢𝐬 𝐋𝐞𝐜𝐭𝐮𝐫𝐞 𝐋𝐢𝐧𝐤 𝐢𝐧 𝐁𝐫𝐨𝐰𝐬𝐞𝐫 𝐟𝐨𝐫 𝐬𝐭𝐮𝐝𝐲 𝐰𝐢𝐭𝐡𝐨𝐮𝐭 𝐞𝐫𝐫𝐨𝐫.</b>\n\n"
+                    "Don't try to Share Lecture link to anyone 😔 we have your full data 😈 and your phone number also 😁.\n\n"
+                ),
+                parse_mode="HTML",
                 disable_web_page_preview=False  # Enable web preview
-            )
+        )
         elif notes:
             notes_message = "\n\n".join([
                 f"🌟<a href=\"{html.escape(note['docUrl'])}\">{html.escape(note['docTitle'])}</a>"
@@ -217,25 +221,25 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     f"<b>{notes_message}</b>\n"
                     "----------------------------------------------------------\n\n"
                     "<b>𝗠𝗮𝗱𝗲 𝗕𝘆 𝗛𝗔𝗖𝗞𝗛𝗘𝗜𝗦𝗧 😈</b>\n"
-                    "CONTACT US - @TEAM_OPTECH\n\n"
+                    "CONTACT US - @NITSCHOOL_BOT\n\n"
                     "You Are on Last page for more Lectures,Notes - /start"
                 ),
                 parse_mode="HTML",
                 disable_web_page_preview=False  # Enable web preview
             )
         else:
-            await query.edit_message_text(text="No lessons or notes found for this topic.")
+            await query.edit_message_text(text="Sorry isme Lectures aur Notes nahi hai abhi")
 
     elif data.startswith("notes_"):
         _, batch_id, subject_id, topic_id = data.split("_")
         notes = fetch_notes(batch_id, subject_id, topic_id)
         if notes:
             notes_message = "\n\n".join([f"🌟<a href=\"{html.escape(note['docUrl'])}\">{html.escape(note['docTitle'])}</a>" for note in notes])
-            await query.edit_message_text(text=f"<b> 𝐀𝐋𝐋 𝐍𝐎𝐓𝐄𝐒 𝐁𝐄𝐋𝐎𝐖 👇</b>\n----------------------------------------------------------\n\n<b>{notes_message}</b>\n----------------------------------------------------------\n\n<b>𝗠𝗮𝗱𝗲 𝗕𝘆 𝗛𝗔𝗖𝗞𝗛𝗘𝗜𝗦𝗧 😈</b>\nCONTACT US - @TEAM_OPTECH\n\nYou Are on Last page for more Lectures,Notes - /start",
+            await query.edit_message_text(text=f"<b> 𝐀𝐋𝐋 𝐍𝐎𝐓𝐄𝐒 𝐁𝐄𝐋𝐎𝐖 👇</b>\n----------------------------------------------------------\n\n<b>{notes_message}</b>\n----------------------------------------------------------\n\n<b>𝗠𝗮𝗱𝗲 𝗕𝘆 𝗛𝗔𝗖𝗞𝗛𝗘𝗜𝗦𝗧 😈</b>\nCONTACT US - @NITSCHOOL_BOT\n\nYou Are on Last page for more Lectures,Notes - /start",
             parse_mode="HTML"
             )
         else:
-            await query.edit_message_text(text="No notes available.")
+            await query.edit_message_text(text="Sorry Notes nahi hai isme 😔.")
 # Main function
 def main() -> None:
     application = Application.builder().token(BOT_TOKEN).build()
