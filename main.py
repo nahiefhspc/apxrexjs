@@ -8,7 +8,7 @@ BOT_TOKEN = "8104493069:AAHVHGeNtiD4_vtfwy0z9XydKBG_h1UiA00"
 
 # Function to get token from the URL
 def get_token_from_url():
-    url = "https://pickupbaby.koyeb.app/"
+    url = "https://pickupbaby2.koyeb.app/"
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
