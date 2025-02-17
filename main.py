@@ -62,6 +62,9 @@ YEAR_CLASSES = {
             "Vijeta 1.0 Gold (11+12) Chem": "132",
             "Vijeta 1.0 Silver (11+12) Chem": "133",
             "Vijeta 1.0 Diamond (11+12) Chem": "134",
+            "Vijay 1.0 Gold (PCM)": "151",
+            "Vijay 1.0 Silver (PCM)": "154",
+            "Vijay 1.0 Diamond (PCM)": "156",
         },
         "12th": {
             "Vijeta 1.0 Silver (PCM)": "126",
@@ -70,12 +73,22 @@ YEAR_CLASSES = {
             "Vijeta 1.0 Gold (11+12) Chem": "132",
             "Vijeta 1.0 Silver (11+12) Chem": "133",
             "Vijeta 1.0 Diamond (11+12) Chem": "134",
+            "Vijeta Diamond(PCM) NEW": "138",
+            "Vijeta Gold(PCM) NEW": "140",
+            "Vijeta Silver(PCM) NEW": "142",    
         },
+        "13th": {
+             "Vishesh 1.0 Diamond(PCM)": "145",
+             "Vishesh 1.0 Gold(PCM)": "146",
+             "Vishesh 1.0 Silver(PCM)": "149",
+             "Vishesh 5.0 (PCM)": "117",
+             
+         },   
          "CrashCourse": {
             "JEE MAINS CC - 2 Attmpt": "135",
             "JEE ADV CC 2025": "136",
             "JEE (M+ADV) 2025": "137",
-            "GOC (11th + 12th)": "138",
+            "GOC (11th + 12th)": "150",
             },            
     },
 }
