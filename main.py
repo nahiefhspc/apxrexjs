@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 START, FETCH_MESSAGES = range(2)
 
 # Bot token
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "8127063024:AAH1Cs8atxlAlbRlpunJUJSn4LVLG6FBxzI")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7880934596:AAG7_DAoSg6MDyB2sQ8jfc6NWX6TQoTBRgI")
 WAIT = os.environ.get("WAIT", "3")
 
 # Start command handler
