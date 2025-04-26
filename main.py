@@ -12,15 +12,14 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Define conversation states
-START = 0
+START, FETCH_MESSAGES = range(2)
 
 # Bot token
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "7880934596:AAG7_DAoSg6MDyB2sQ8jfc6NWX6TQoTBRgI")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "8127063024:AAH1Cs8atxlAlbRlpunJUJSn4LVLG6FBxzI")
 WAIT = os.environ.get("WAIT", "3")
 
 # Start command handler
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    context.user_data["cancel"] = False  # Reset cancel flag on start
     await update.message.reply_text(
         "Welcome! Please provide the following details to start copying messages:\n"
         "1. Source Channel ID\n"
@@ -33,6 +32,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # Fetch and copy messages
 async def fetch_messages(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
+        # Extract user inputs
         user_data = update.message.text.split()
         if len(user_data) != 4:
             await update.message.reply_text("Please provide exactly 4 values (source_id, target_id, start_id, end_id).")
@@ -45,10 +45,6 @@ async def fetch_messages(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         bot = context.bot
         for msg_id in range(start_id, end_id + 1):
-            if context.user_data.get("cancel"):
-                await update.message.reply_text("Operation cancelled successfully!")
-                return ConversationHandler.END
-
             try:
                 message = await bot.get_chat(source_channel_id).get_message(msg_id)
 
@@ -56,7 +52,7 @@ async def fetch_messages(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     await bot.send_video(
                         chat_id=target_channel_id,
                         video=message.video.file_id,
-                        caption="𝐁𝐘 𝐃𝐀𝐑𝐊 𝐍𝐈𝐆𝐇𝐓 🌟 - [@DARKCOLLECT_BOT]"
+                        caption="BY OPMASTER"
                     )
                 elif message.photo:
                     await bot.send_photo(
@@ -98,13 +94,14 @@ async def fetch_messages(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Cancel handler
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    context.user_data["cancel"] = True  # Set cancel flag
-    await update.message.reply_text("Cancelling operation... please wait.")
+    await update.message.reply_text("Operation cancelled.")
+    return ConversationHandler.END
 
 # Main function
 def main():
     application = Application.builder().token(BOT_TOKEN).build()
 
+    # Conversation handler
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={
@@ -114,7 +111,8 @@ def main():
     )
 
     application.add_handler(conv_handler)
-    application.add_handler(CommandHandler('cancel', cancel))  # Add cancel handler outside conv too
+
+    # Start the bot
     application.run_polling()
 
 if __name__ == '__main__':
